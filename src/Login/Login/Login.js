@@ -20,26 +20,23 @@ const Login = () => {
     }
 
     return (
-        <div className='mt-5'>
+        <div className='mt-5 w-50 mx-auto'>
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
+                    <Form.Label><strong>Email address</strong></Form.Label>
+                    <Form.Control className='text-center' type="email" placeholder="Enter your email address" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                    <Form.Label><strong>Password</strong></Form.Label>
+                    <Form.Control className='text-center' type="password" placeholder="Enter your Password" required />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
+                {/* <Form.Text className="text-danger">
+                    
+                </Form.Text> */}
             </Form>
             <Button onClick={handleGoogleSignIn} className='my-40px mt-3 me-2' variant="outline-primary">Google sign in</Button>
             <Button className='my-40px mt-3' variant="outline-primary">Git hub sign in</Button>

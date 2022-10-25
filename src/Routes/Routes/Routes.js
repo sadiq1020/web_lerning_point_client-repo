@@ -36,7 +36,7 @@ export const routes = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path: '/',
+                path: '/register',
                 element: <Register></Register>
             }
         ]
