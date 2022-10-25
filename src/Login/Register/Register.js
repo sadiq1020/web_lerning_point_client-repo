@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import app from '../../firebase/firebase.config';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
-    const { createUser } = useContext(app);
+    const { createUser } = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -15,11 +15,12 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        // registration 
+        // registration
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                form.reset();
             })
             .catch(e => console.error(e));
     }
