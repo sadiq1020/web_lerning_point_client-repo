@@ -2,20 +2,29 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
+import './Header.css';
+import Logo from '../../../assets/headerLogo/logo.png'
+// import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const Header = () => {
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar className='header' collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">WEB LearningPoint</Navbar.Brand>
+                    <Navbar.Brand href="#home">
+                        <img src={Logo} width="30" height="30" className="d-inline-block align-top" alt="React Bootstrap logo" />
+                    </Navbar.Brand>
+                    <Link to='/' className='brandName'><Navbar.Brand><strong>WEB LearningPoint</strong></Navbar.Brand></Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#features">Features</Nav.Link>
-                            <Nav.Link href="#pricing">Pricing</Nav.Link>
-                            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                            <Link to='/courses' className='header-link'>Courses</Link>
+                            <Link className='header-link'>FAQ</Link>
+                            <Link className='header-link'>Blog</Link>
+                            {/* <Nav.Link href="#pricing">FAQ</Nav.Link>
+                            <Nav.Link href="#pricing">Blog</Nav.Link> */}
+                            {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">
                                     Another action
@@ -25,7 +34,7 @@ const Header = () => {
                                 <NavDropdown.Item href="#action/3.4">
                                     Separated link
                                 </NavDropdown.Item>
-                            </NavDropdown>
+                            </NavDropdown> */}
                         </Nav>
                         <Nav>
                             <Nav.Link href="#deets">More deets</Nav.Link>
@@ -34,9 +43,9 @@ const Header = () => {
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </div>
+                </Container >
+            </Navbar >
+        </div >
     );
 };
 

@@ -1,4 +1,11 @@
 .home-container {
     background-color: darkslategray;
-    height: 100vh;
 }
+
+/* 
+.homePageCard {
+    height: 200px;
+    width: 600px;
+    border-radius: 30px;
+    border: 1px solid black;
+} */
