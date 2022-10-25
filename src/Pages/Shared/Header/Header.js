@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import { Image } from 'react-bootstrap';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
 import './Header.css';
 import Logo from '../../../assets/headerLogo/logo.png'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
@@ -39,9 +41,12 @@ const Header = () => {
                             </NavDropdown> */}
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">{user.displayName}</Nav.Link>
+                            {/* <Nav.Link href="#deets">{user?.displayName}</Nav.Link> */}
                             <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
+                                {user.photoURL ?
+                                    <Image style={{ height: '30px' }} roundedCircle src={user.photoURL}></Image>
+                                    : <FaUser></FaUser>
+                                }
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
