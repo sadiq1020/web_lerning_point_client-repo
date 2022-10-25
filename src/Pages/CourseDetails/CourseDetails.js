@@ -1,16 +1,18 @@
 import Button from 'react-bootstrap/Button';
+import { FaFileDownload } from 'react-icons/fa';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import './CourseDetails.css';
 
 const CourseDetails = () => {
+    // const [] = 
     const courseDetails = useLoaderData();
-    const { courseName, picture, course_fee, course_duration, details } = courseDetails;
+    const { courseName, picture, course_fee, course_duration, details, id } = courseDetails;
     return (
         <div className='course-details-container'>
             <div className='course-image-container'>
+                <h3>{courseName} <button><FaFileDownload /></button></h3>
                 <img src={picture} alt="" />
-                <h3>{courseName}</h3>
             </div>
 
             <p>{details}</p>
@@ -18,7 +20,7 @@ const CourseDetails = () => {
                 <h5>Course fee<span className='text-primary'> ${course_fee}</span></h5>
                 <h5>Course Duration: <span className='text-success'>{course_duration} months</span></h5>
             </div>
-            <Button className='my-40px' variant="outline-dark">Premium Access</Button>
+            <Link to={`/checkout/${id}`} ><Button className='my-40px' variant="outline-dark">Get Premium Access</Button></Link>
 
         </div>
     );
