@@ -15,7 +15,7 @@ const Home = () => {
                 <Row xs={1} md={2} className="g-5">
                     <Col>
                         <Card className='bg-warning'>
-                            <Card.Img className='img-fluid' variant="top" src={WebDevelopment} />
+                            <Card.Img variant="top" src={WebDevelopment} />
                             <Card.Body>
                                 <Card.Title><h4>Web Development</h4></Card.Title>
                                 <Card.Text>

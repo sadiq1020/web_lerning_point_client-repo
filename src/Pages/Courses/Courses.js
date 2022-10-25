@@ -2,9 +2,11 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import './Course.css';
-import LeftNav from './LeftNav/LeftNav';
+import './Courses.css';
+import LeftNav from '../LeftNav/LeftNav';
 import { useLoaderData } from 'react-router-dom';
+import CourseList from '../CourseList/CourseList';
+// import Course from '../Course/Course';
 
 const Courses = () => {
     const courses = useLoaderData();
@@ -12,15 +14,17 @@ const Courses = () => {
 
     return (
         <div className='course-container'>
-            <Container>
+            <Container className='p-5'>
                 <Row>
-                    <Col lg="3">
+                    <Col lg="2">
                         {
                             courses.map(course => <LeftNav key={course.key} course={course}></LeftNav>)
                         }
                     </Col>
-                    <Col lg="9">
-                        asdasdasd
+                    <Col lg="10">
+                        {
+                            courses.map(course => <CourseList key={course.key} course={course}></CourseList>)
+                        }
                     </Col>
                 </Row>
             </Container>
