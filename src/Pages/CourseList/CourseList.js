@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
-import Affiliate from '../../assets/web-development.png'
+import Button from 'react-bootstrap/Button';
 
 const CourseList = ({ course }) => {
     const { courseName, course_duration, details, picture } = course;
@@ -15,6 +15,7 @@ const CourseList = ({ course }) => {
                         <Card.Text>
                             {details}
                         </Card.Text>
+                        <Button className='my-40px' variant="outline-dark">Premium Access</Button>
                     </Card.Body>
                     <Card.Footer>
                         <small className="text-muted">Course Duration: {course_duration} Months</small>
