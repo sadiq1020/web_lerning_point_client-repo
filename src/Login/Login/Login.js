@@ -2,7 +2,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
@@ -72,6 +72,7 @@ const Login = () => {
             </Form>
             <Button onClick={handleGoogleSignIn} className='my-40px mt-3 me-2' variant="outline-primary">Google sign in</Button>
             <Button className='my-40px mt-3' variant="outline-primary">Git hub sign in</Button>
+            <p className='mt-2'>Not have an account? <Link to='/register'>Register here</Link></p>
             <p className="text-danger">{error}</p>
         </div>
     );
