@@ -14,8 +14,8 @@ const CourseDetails = () => {
         <div className='course-details-container my-5 mx-auto' ref={ref}>
             <div className='course-image-container'>
                 <h3>{courseName}
-                    <Pdf targetRef={ref} filename="code-example.pdf">
-                        {({ toPdf }) => <FaDownload onClick={toPdf} />}
+                    <Pdf targetRef={ref} filename="course-details.pdf">
+                        {({ toPdf }) => <FaDownload className='course-icon' onClick={toPdf} />}
                     </Pdf>
                 </h3>
                 <img src={picture} alt="" />

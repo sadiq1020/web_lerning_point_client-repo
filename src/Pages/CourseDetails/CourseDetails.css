@@ -20,6 +20,10 @@
     max-width: 650px;
 }
 
+.course-icon:hover {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
     .course-details-container {
         width: 300px;

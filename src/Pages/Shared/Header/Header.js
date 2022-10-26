@@ -57,7 +57,6 @@ const Header = () => {
                         </Nav>
                         <Button className='me-lg-4' onClick={handleToggleButton} variant="outline-light">{btnText}</Button>
                         <Nav>
-
                             <>
                                 {
                                     user?.uid ?
