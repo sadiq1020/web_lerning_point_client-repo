@@ -14,7 +14,7 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     // log out
-    const hangleLogOut = () => {
+    const handleLogOut = () => {
         logOut()
             .then(() => { })
             .catch(e => console.error(e))
@@ -35,20 +35,21 @@ const Header = () => {
                             <Link className='header-link'>Blog</Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">
+                            <>
                                 {
                                     user?.uid ?
-                                        <Button onClick={hangleLogOut} variant="outline-primary">Log out</Button>
+                                        <Button onClick={handleLogOut} variant="outline-primary">Log out</Button>
                                         :
                                         <Link to='/login'><Button variant="outline-primary">Log in</Button></Link>
                                 }
-                            </Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
+                            </>
+                            <>
                                 {user?.photoURL ?
                                     <Image style={{ height: '30px' }} roundedCircle src={user.photoURL}></Image>
-                                    : <FaUser></FaUser>
+                                    :
+                                    <Link><FaUser></FaUser></Link>
                                 }
-                            </Nav.Link>
+                            </>
                         </Nav>
                     </Navbar.Collapse>
                 </Container >
