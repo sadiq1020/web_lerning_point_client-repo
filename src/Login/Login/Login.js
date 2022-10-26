@@ -2,13 +2,16 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('');
     const { providerGoogleLogin, signIn } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     // google sign in
     const googleProvider = new GoogleAuthProvider();
@@ -19,6 +22,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 setError('');
+                navigate(from, { replace: true });
             })
             .catch(e => {
                 console.error(e);
@@ -39,15 +43,13 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(e => {
                 console.error(e);
                 setError(e.message);
             });
     }
-
-
 
     return (
         <div className='mt-5 w-50 mx-auto'>
