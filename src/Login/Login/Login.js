@@ -83,9 +83,6 @@ const Login = () => {
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
-                {/* <Form.Text className="text-danger">
-                    {error}
-                </Form.Text> */}
             </Form>
             <Button onClick={handleGoogleSignIn} className='my-40px mt-3 me-2' variant="outline-primary">Google sign in</Button>
             <Button onClick={handleGithubSignIn} className='my-40px mt-3' variant="outline-primary">Git hub sign in</Button>

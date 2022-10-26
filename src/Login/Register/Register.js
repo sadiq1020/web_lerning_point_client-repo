@@ -79,9 +79,6 @@ const Register = () => {
                 </Button>
                 <p className="text-danger">{error}</p>
                 <p className='mt-2'>Already have an account? <Link to='/login'>Log in</Link></p>
-                {/* <Form.Text className="text-danger">
-                
-            </Form.Text> */}
             </Form>
         </div>
     );

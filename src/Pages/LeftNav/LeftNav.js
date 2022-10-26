@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 
 const LeftNav = ({ course }) => {
-    console.log(course);
     const { courseName, id } = course;
     return (
         <div>

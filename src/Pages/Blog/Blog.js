@@ -8,7 +8,7 @@ const Blog = () => {
                 <h1 className='mb-5 mt-5 pt-3 text-center'>Some Common Questions Answer</h1>
             </div>
             <div>
-                <h4 className='text-info'>what is 'cors'?</h4>
+                <h4 className='text-info'>What is 'cors'?</h4>
                 <p>CORS is shorthand for Cross-Origin Resource Sharing. It allows us to relax the security applied to an API. This is done by bypassing the Access-Control-Allow-Origin headers, which specify which origins can access the API. <br />
                     In other words, CORS is a browser security feature that restricts cross-origin HTTP requests with other servers and specifies which domains access your resources.
                 </p>

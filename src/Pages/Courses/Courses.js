@@ -6,11 +6,9 @@ import './Courses.css';
 import LeftNav from '../LeftNav/LeftNav';
 import { useLoaderData } from 'react-router-dom';
 import CourseList from '../CourseList/CourseList';
-// import Course from '../Course/Course';
 
 const Courses = () => {
     const courses = useLoaderData();
-    // console.log(courses);
 
     return (
         <div className='course-container'>
