@@ -35,7 +35,7 @@ const Register = () => {
     // for update user profile
     const handleUpdateUerProfile = (firstName, lastName, photoURL) => {
         const profile = {
-            displayName: firstName + lastName,
+            displayName: firstName + ' ' + lastName,
             photoURL: photoURL
         }
         updateUserProfile(profile)
