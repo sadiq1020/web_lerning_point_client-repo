@@ -9,6 +9,8 @@ import { FaUser } from 'react-icons/fa';
 import './Header.css';
 import Logo from '../../../assets/headerLogo/logo.png'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const Header = () => {
@@ -25,6 +27,12 @@ const Header = () => {
         }
     }
 
+    // Displaying user name by tooltip
+    const renderTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            {user?.displayName}
+        </Tooltip>
+    );
 
     // log out
     const handleLogOut = () => {
@@ -45,10 +53,11 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Link to='/courses' className='header-link'>Courses</Link>
                             <Link className='header-link'>FAQ</Link>
-                            <Link className='header-link'>Blog</Link>
+                            <Link to="/blog" className='header-link'>Blog</Link>
                         </Nav>
                         <Button className='me-lg-4' onClick={handleToggleButton} variant="outline-light">{btnText}</Button>
                         <Nav>
+
                             <>
                                 {
                                     user?.uid ?
@@ -57,13 +66,13 @@ const Header = () => {
                                         <Link to='/login'><Button variant="outline-primary">Log in</Button></Link>
                                 }
                             </>
-                            <>
+                            <OverlayTrigger placement="right" delay={{ show: 250, hide: 400 }} overlay={renderTooltip}>
                                 {user?.photoURL ?
                                     <Image style={{ width: '40px' }} roundedCircle src={user.photoURL}></Image>
                                     :
                                     <Link><FaUser></FaUser></Link>
                                 }
-                            </>
+                            </OverlayTrigger>
                         </Nav>
                     </Navbar.Collapse>
                 </Container >

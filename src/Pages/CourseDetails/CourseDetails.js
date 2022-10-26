@@ -1,19 +1,28 @@
 import Button from 'react-bootstrap/Button';
-import { FaFileDownload } from 'react-icons/fa';
+import { FaDownload } from 'react-icons/fa';
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Pdf from "react-to-pdf";
 import './CourseDetails.css';
+
+const ref = React.createRef();
 
 const CourseDetails = () => {
     // const [] = 
     const courseDetails = useLoaderData();
     const { courseName, picture, course_fee, course_duration, details, id } = courseDetails;
     return (
-        <div className='course-details-container'>
+        <div className='course-details-container my-5 mx-auto' ref={ref}>
+
             <div className='course-image-container'>
-                <h3>{courseName} <button><FaFileDownload /></button></h3>
+                <h3>{courseName}
+                    <Pdf targetRef={ref} filename="code-example.pdf">
+                        {({ toPdf }) => <FaDownload onClick={toPdf} />}
+                    </Pdf>
+                </h3>
                 <img src={picture} alt="" />
             </div>
+
 
             <p>{details}</p>
             <div className='d-flex justify-content-around'>
