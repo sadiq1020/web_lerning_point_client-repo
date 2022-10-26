@@ -1,11 +1,12 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
+    const [error, setError] = useState('');
     const { providerGoogleLogin, signIn } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -17,8 +18,12 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setError('');
             })
-            .catch(e => console.error(e));
+            .catch(e => {
+                console.error(e);
+                setError(e.message);
+            });
     }
 
     // sign in with email and password
@@ -33,9 +38,13 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                setError('');
                 navigate('/');
             })
-            .catch(e => console.error(e));
+            .catch(e => {
+                console.error(e);
+                setError(e.message);
+            });
     }
 
 
@@ -56,11 +65,12 @@ const Login = () => {
                     Submit
                 </Button>
                 {/* <Form.Text className="text-danger">
-                    
+                    {error}
                 </Form.Text> */}
             </Form>
             <Button onClick={handleGoogleSignIn} className='my-40px mt-3 me-2' variant="outline-primary">Google sign in</Button>
             <Button className='my-40px mt-3' variant="outline-primary">Git hub sign in</Button>
+            <p className="text-danger">{error}</p>
         </div>
     );
 };
