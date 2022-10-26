@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import { Image } from 'react-bootstrap';
@@ -13,6 +13,19 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [btnText, setBtnText] = useState('Black');
+
+    // toggle button
+    const handleToggleButton = () => {
+        if (btnText === 'Black') {
+            setBtnText('White')
+        }
+        if (btnText === 'White') {
+            setBtnText('Black')
+        }
+    }
+
+
     // log out
     const handleLogOut = () => {
         logOut()
@@ -34,6 +47,7 @@ const Header = () => {
                             <Link className='header-link'>FAQ</Link>
                             <Link className='header-link'>Blog</Link>
                         </Nav>
+                        <Button className='me-lg-4' onClick={handleToggleButton} variant="outline-light">{btnText}</Button>
                         <Nav>
                             <>
                                 {
@@ -45,7 +59,7 @@ const Header = () => {
                             </>
                             <>
                                 {user?.photoURL ?
-                                    <Image style={{ height: '30px' }} roundedCircle src={user.photoURL}></Image>
+                                    <Image style={{ width: '40px' }} roundedCircle src={user.photoURL}></Image>
                                     :
                                     <Link><FaUser></FaUser></Link>
                                 }
